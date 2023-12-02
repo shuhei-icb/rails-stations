@@ -1,0 +1,15 @@
+<div>
+  <%= form_with url: movies_path, local: true, method: :get do |f| %>
+    <%= f.text_field :keyword %>
+    <%= f.radio_button :is_showing, "" %>全て
+    <%= f.radio_button :is_showing, "1" %>上映中
+    <%= f.radio_button :is_showing, "0" %>上映予定
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+<div>
+  <% @all_movies.each do |movie| %>
+    <%= movie.name %>
+    <%= image_tag "#{movie.image_url}" %>
+  <% end %>
+</div>  

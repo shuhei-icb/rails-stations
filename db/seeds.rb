@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+10.times do |n|
+  Movie.create!(
+    name: "スターウォーズ-エピソード#{n + 1}",
+    year: "2000",
+    description: "スターウォーズのエピソード#{n + 1}です",
+    image_url: "https://picsum.photos/seed/picsum/100/100",
+    is_showing: true
+  )
+end

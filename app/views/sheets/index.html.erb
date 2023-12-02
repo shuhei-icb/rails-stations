@@ -1,0 +1,9 @@
+<table>
+	<tbody>
+    <% @sheets.each do |sheet| %>
+		<tr>
+		  <td>（<%= sheet.column %>、<%= sheet.row %>）</td>
+		</tr>
+    <% end %>
+	</tbody>
+</table>
