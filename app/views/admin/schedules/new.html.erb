@@ -1,0 +1,16 @@
+<h1>スケジュールの追加</h1>
+<div>
+  <%= form_with model: [@movie, @schedule],url: admin_movie_schedules_path, local: true do |form| %>
+  <div>
+    上映映画ID：<%= @movie.id %>
+  </div>
+  
+  <%= form.label :start_time, "上映開始時間" %>
+  <%= form.datetime_select :start_time %>
+
+  <%= form.label :end_time, "上映終了時間" %>
+  <%= form.datetime_select :end_time %>
+
+    <%= form.submit "登録する" %>
+  <% end %>
+</div>

@@ -1,0 +1,17 @@
+<table>
+	<tbody>
+    <% @sheets.each do |sheet| %>
+		<tr>
+		  <td>
+        <% if @sheet_ary.include?(sheet.id) %>
+          （<%= sheet.column %>、<%= sheet.row %>)
+        <% else %>
+          <%= link_to reservations_new_path(movie_id: @movie.id, schedule_id: @schedule_id, date: @date, sheet_id: sheet.id) do %>
+          （<%= sheet.column %>、<%= sheet.row %>）
+          <% end %>
+        <% end %>
+      </td>
+		</tr>
+    <% end %>
+	</tbody>
+</table>

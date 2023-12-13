@@ -1,0 +1,15 @@
+<h1>スケジュールの変更</h1>
+<div>
+  <%= form_with model: @schedule,url: admin_schedule_path, local: true do |form| %>
+
+  <%= form.label :start_time, "上映開始時間" %>
+  <%= form.datetime_select :start_time %>
+
+  <%= form.label :end_time, "上映終了時間" %>
+  <%= form.datetime_select :end_time %>
+
+    <%= form.submit "変更する" %>
+
+    <%= link_to "このスケジュールを削除する", admin_schedule_path(@schedule.id), method: :delete, data: {confirm: "削除しますか？"} %>
+  <% end %>
+</div>

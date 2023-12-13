@@ -3,6 +3,11 @@ class Admin::MoviesController < ApplicationController
     @all_movies = Movie.all
   end
 
+  def show
+    @movie = Movie.find(params[:id])
+    @schedules = @movie.schedules
+  end
+
   def new
     @movie = Movie.new
   end

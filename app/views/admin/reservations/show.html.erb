@@ -1,0 +1,21 @@
+<h1>ご予約ページ</h1>
+  <%= form_with model: @reservation, url: admin_reservation_path, local: true do |form| %>
+  
+    <%= form.label :name, "名前" %>
+    <%= form.text_field :name %>
+
+    <%= form.label :email, "メールアドレス" %>
+    <%= form.email_field :email %>
+
+    <%= form.label :sheet_id, "sheet_id" %>
+    <%= form.number_field :sheet_id %>
+
+    <%= form.label :schedule_id, "schedule_id" %>
+    <%= form.number_field :schedule_id %>
+
+    <%= form.label :date, "date" %>
+    <%= form.datetime_field :date %>
+
+    <%= form.submit "変更する" %>
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+<div>
+  <div><%= @movie.name %></div>
+  <div><%= @movie.year %></div>
+  <div><%= @movie.description %></div>
+  <div><%= image_tag "#{@movie.image_url}" %></div>
+  <% if @movie.is_showing %>
+    <div>上映中</div>
+  <% else %>
+    <div>上映予定</div>
+  <% end %>
+</div>
+<div>
+  <% @schedules.each do |schedule| %>
+    <div>
+      <%= schedule.start_time.strftime('%Y/%m/%d') %>
+      <%= schedule.end_time.strftime('%Y/%m/%d') %>
+      <%= link_to "スケジュールへ", admin_schedule_path(schedule.id) %>
+      <%= link_to "スケジュールの変更", edit_admin_schedule_path(schedule.id) %>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "上映一覧", admin_schedules_path %>
+  <%= link_to "スケジュールの追加", new_admin_movie_schedule_path(@movie.id) %>
+</div>

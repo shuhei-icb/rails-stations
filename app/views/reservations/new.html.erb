@@ -1,0 +1,28 @@
+<h1>ご予約ページ</h1>
+<div>
+  <ul>
+    <li><%= @movie.name %></li>
+    <li>
+      <%= @schedule.start_time.strftime('%m月 %d日') %>
+      開始時間　<%= @schedule.start_time.strftime('%-H:%M') %>
+      終了時間　<%= @schedule.end_time.strftime('%-H:%M') %>
+    </li>
+    <li><%= @movie.name %></li>
+  </ul>
+</div>
+<div>
+  <%= form_with model: @reservation, url: reservations_path, local: true do |form| %>
+  
+    <%= form.label :name, "名前" %>
+    <%= form.text_field :name %>
+
+    <%= form.label :email, "メールアドレス" %>
+    <%= form.email_field :email %>
+
+    <%= form.hidden_field :schedule_id, value: @schedule.id %>
+    <%= form.hidden_field :sheet_id, value: @sheet.id %>
+    <%= form.hidden_field :date, value: @date %>
+
+    <%= form.submit "登録する" %>
+  <% end %>
+</div>
